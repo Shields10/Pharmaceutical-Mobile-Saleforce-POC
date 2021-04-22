@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://10.10.0.129  data: gap: http://10.10.0.12; style-src 'self' 'unsafe-inline';  media-src *;  script-src 'self' 'unsafe-eval' 'unsafe-inline';"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>Saleforce App</title>
+  <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/splash.css">
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+  <link rel="icon" href="img/f7-icon.png">
+</head>
+<body class="color-theme-darkgreen" onload="timer(3)" >
+    <!-- App root element -->
+    <div id="app">
+
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main ios-edges">
+        <!-- Initial Page, "data-name" contains page name -->
+        <div class="page splashscreenbg">
+
+          <!-- Top Navbar -->
+
+        </div>
+        
+
+          <form method="GET" id="mainform">
+              <input type = "hidden" name = "ukey" id = "ukey" value="">
+          </form>  
+            
+     
+                      
+      </div>
+      </div>
+    
+    
+    <!-- Cordova -->
+ <!-- Include cordova.js in all files for final compilation   --> 
+  <script src="cordova.js"></script>
+    <script src="packages/core/js/framework7.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+   <script src="js/AESUtil.js"></script>
+
+    
+  <script>
+
+
+
+
+let timerOn = true;
+function timer(remaining) {
+
+//var m = Math.floor(remaining / 60);
+//var s = remaining % 60;
+
+//m = m < 10 ? '0' + m : m;
+//s = s < 10 ? '0' + s : s;
+//document.getElementById('timer').innerHTML = m + ':' + s;
+remaining -= 1;
+
+if(remaining >= 0 && timerOn) {
+  setTimeout(function() {
+      timer(remaining);
+  }, 2500);
+  return;
+}
+
+
+if(!timerOn) {
+  // Do validate stuff here
+
+  return;
+}
+
+// Do timeout stuff here
+$('#mainform').attr('action', 'loginpage.html');     $$( "#mainform" ).submit();
+//alert('Timeout for otp');
+
+}
+
+
+ </script>    
+</body>
+</html>

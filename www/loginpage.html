@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>Saleforce App</title>
+  <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="packages/core/components/sweetalert/sweetalert2.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+  <link rel="icon" href="img/f7-icon.png">
+</head>
+<body class="color-theme-red" >
+    <!-- App root element -->
+    <div id="app">
+
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main ios-edges">
+        <div class="page login-bg">
+          <div class="page-content login-page">
+              <div class="block" style="margin-top: 48%;">
+                
+                  <h1 class="login-title"><small style="color: #ee3739;">Joint Fix</small><br>Saleforce App</h1>
+              </div>
+              
+                  
+              <div class="block">
+                          <div class="row">
+                              <div class="col">
+                                  <div class="list no-hairlines-md inputs-logins">
+                                      <ul>
+                                          <li class="item-content item-input">
+                                              <div class="item-media">
+                                                  
+                                                  <i class="icon f7-icons  color-black">person</i>
+                                              </div>
+                                              <div class="item-inner">
+                                                  <div class="item-input-wrap">
+                                                      <input type="text" name="badgeno" id = "badgeno" placeholder="Enter Username" value="" >
+                                                  <span class="input-clear-button"></span>
+                                                  </div>
+                                              </div>
+                                          </li>
+                                          <li class="item-content item-input">
+                                              <div class="item-media">
+                                                  
+                                                  <i class="icon f7-icons color-black">lock</i>
+                                              </div>
+                                              <div class="item-inner">
+                                                  <div class="item-input-wrap">
+                                                      <input type="password" id="password" name="password" placeholder="Your password" value="">
+                                                      <span class="input-clear-button"></span>
+                                                  </div>
+                                              </div>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-50" ></div>
+                              <div class="col-50"style="margin-top: 4%;"><a id="loginbutton" class="col col-50 button gradient signinbuttn md-elevation-6">Sign In</a></div>
+                          </div>
+                            <br>
+                            
+                            <br>
+          </div>         
+              
+          </div>
+        </div>
+        <form  method="GET" id="loginform" >
+
+        </form> 
+      </div>
+    </div>
+    
+    <!-- Cordova -->
+ <!-- Include cordova.js in all files for final compilation   --> 
+  <script src="cordova.js"></script>
+    <script src="packages/core/js/framework7.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="packages/core/components/sweetalert/sweetalert2.all.min.js"></script>   
+   <script src="js/AESUtil.js"></script>
+
+   <script>
+    
+
+$(document).ready(function(){
+         
+    });
+
+
+$( "#loginbutton" ).click(function() {
+               $('#loginform').attr('action', 'dashboard.html');     $$( "#loginform" ).submit();
+              
+              });
+
+ 
+
+
+
+
+
+</script>    
+</body>
+</html>
