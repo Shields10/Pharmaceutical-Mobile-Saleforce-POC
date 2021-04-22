@@ -8,8 +8,9 @@ Saleforce app POC for a pharmaceutical company.
 
 - Screenshot of pages already made
 
-![](joint-fix screenshots/splashscreen.png
+<img src="/joint-fix screenshots/splashscreen.png" alt="Splashscreen"/>
 
-![](joint-fix screenshots/logi-page.png)
+<img src="/joint-fix screenshots/logi-page.png" alt="LoginPage"/>
 
-![](joint-fix screenshots/dashboard.png)
+<img src="/joint-fix screenshots/dashboard.png" alt="Dashboard"/>
+
