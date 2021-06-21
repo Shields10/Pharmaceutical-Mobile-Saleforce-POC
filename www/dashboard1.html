@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>Saleforce App</title>
+  <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+  <link rel="icon" href="img/f7-icon.png">
+</head>
+<body class="color-theme-white" >
+    <!-- App root element -->
+    <div id="app">
+
+      <div class="panel panel-left panel-cover">
+        <div class="page ">
+          <div class="page-content" style="background-color: #000a48;" >
+            <div class="row panel-headerm">
+              <a href="#" class="panel-close close-drawer"><i class="icon f7-icons color-white" style="float: right;margin-right: -124px">multiply</i></a>
+            </div> 
+              <div class="list no-chevron no-hairlines no-hairlines-between" style="margin-top: 10px;">
+              <ul>
+                <div class="panelitems">
+                  <li>
+                    <a href="#" id="lnkdashboard" class="item-link panel-close">
+                      <div class="item-content">  
+                        <div class="item-inner">
+                          <div class="item-title" style="color:#ffff;">Dashboard</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" id="lnkdashboard" class="item-link panel-close">
+                      <div class="item-content">  
+                        <div class="item-inner">
+                          <div class="item-title" style="color:#ffff;">Leave</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+          
+                  <li>
+                    <a href="#" id="" onclick="javascript:fnLogOut();return false;" class="item-link panel-close">
+                      <div class="item-content">
+                        <div class="item-media">
+                          <img src="img/logout.svg" alt="retail" height="24" width="24">
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title"  style="color:#ffff;">Logout</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  
+
+                  
+                  
+              </div>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </div> 
+        
+        
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main ios-edges">
+        <!-- Initial Page, "data-name" contains page name -->
+             <div class="page">
+                      <div class="navbar">
+                            <div class=" navbar-inner" style="background-color: #000a48;">
+                                <div class="left">
+                                  <a href="#" class="link icon-only panel-open" data-panel="left">
+                                    <i class="icon f7-icons ios-only" style="color:#FFFFFF" >menu</i>
+                                    <i class="icon material-icons md-only"  style="color:#FFFFFF">menu</i>
+                                  </a>
+                                </div>
+                                  <div class="title sliding navtitlep text-align-center" style="margin-left: 100px; margin-right: auto;" >HOME</div> 
+                              </div>
+                          </div>
+
+                     <div class="page-content">
+
+                            <div class="blue-overlay">
+                              <p class = "greet-messagename"id="greating" style="color:#FFFFFF; margin-top: 59px;margin-left: 67px;"> </p>
+                              <p class = "greet-messagename"id="spanusername" style="font-size: large; margin-top: 4px;color:white; margin-left: 67px; ">Benjamin </p>
+                            </div>
+
+                            <!-- 
+                              <div class="dashtopm card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition"> 
+                            
+                                  <div class="row" tyle="margin-top: -2%; ">
+                                    <p class = "greet-messagename"id="greating"> </p>
+                                  </div>
+                                  <div class="row">
+                                    <p class = "greet-messagename"id="spanusername" style="font-size: large; margin-top: 4px; ">Benjamin </p>
+                                  </div>
+                               
+                                </div>   -->
+
+
+                               <div class="checkin-card card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style="margin-top: 121px;  "> 
+                                  <div class="row" style="margin-top: 21px;">
+
+                                    <div class="col-50">
+                                      <button class="pushable">
+                                        <span class="shadow"></span>
+                                        <span class="edge"></span>
+                                        <span class="front">
+                                         Check In
+                                        </span>
+                                      </button>
+                                    </div> 
+
+                                    <div class="col-50">
+                                      <button class="pushable">
+                                        <span class="shadow"></span>
+                                        <span class="edge"></span>
+                                        <span class="front">
+                                          Check Out
+                                        </span>
+                                      </button>
+                                    </div> 
+                                    <p style="font-family:GothamBook; color: #ee3739; font-weight: bold; font-size: medium; margin: auto; text-decoration: underline;">View History</p>
+
+                                  </div>
+                            
+                             
+                              </div>
+
+                              
+
+                                <div  id="usercard" style="margin-top: 37px;">
+                                
+                                  <div class="card-content">
+                               
+                                    <div class="griddash">
+                                      <div class="col grditem"  onclick="javascript:fnCallPage('tourplan');return false;">
+                                        
+                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px; border: 2px solid #ee3739 ;">
+                                          <img src="img/tourplan.png" height="50" width="50" style="margin:auto;">
+                                        <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small; ">TOUR PLAN </p>
+                                        </div>
+            
+                                      </div>
+                                      <div class="col grditem"  onclick="javascript:fnCallPage('filereport');return false;">
+                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px; border: 2px solid #ee3739 ;">
+                                          <img src="img/report.png" height="50" width="50" style="margin:auto;">
+                                          <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small;">FILE REPORT</p>
+                                        </div>
+                                      </div>
+            
+                                      <div class="col grditem"  onclick="javascript:fnCallPage('sales_analysis');return false;">
+                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px ; border: 2px solid #ee3739 ;">
+                                          <img src="img/sale-analysis.png" height="50" width="50" style="margin:auto;">
+                                          <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small;">SALE ANALYSIS</p>
+                                         </div>
+                                      </div>
+                                      <div class="col grditem"  onclick="javascript:fnCallPage('doctors');return false;">
+                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px;border: 2px solid #ee3739 ;" >
+                                          <img src="img/doctor.png" height="50" width="50" style="margin:auto;">
+                                          <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small;">DOCTORS</p>
+                                         </div>
+                                      </div>
+            
+            
+            
+            
+                                    </div>
+                                 
+                                  </div>
+                            </div>
+
+                  
+                   </div>
+            </div>
+       </div>
+          <form  method="GET" id="mainform" >
+          </form>              
+        </div>
+      </div>
+    </div>
+  
+    
+    <!-- Cordova -->
+
+ <!-- Include cordova.js in all files for final compilation   --> 
+ 
+     <script src="cordova.js"></script>-
+  <script src="packages/core/js/framework7.bundle.min.js"></script>
+    <script src="packages\core\components\sweetalert/sweetalert2.all.min.js"></script>
+  <script src="js/app.js"></script>
+ <script src="js/jquery-3.4.1.min.js"></script> <!--Call the jquery at the end of all JS files, else jquery will not work -->
+ <script src="js/AESUtil.js"></script>
+    
+ <script>
+
+
+
+
+$(document).ready(function(){
+    console.log('ready');
+
+    var dateNow= new Date().toDateString();
+    $('#today').html(dateNow);
+});
+var dt = new Date().getHours();
+            if (dt >= 0 && dt <= 11){
+             document.getElementById("greating").innerHTML='Good Morning! 🌄'
+            }else if (dt >= 12 && dt <= 17){
+                document.getElementById("greating").innerHTML='Good Afternoon! 🌞  '
+            }else {
+                document.getElementById("greating").innerHTML='Good Evening! 🌙'
+            }
+
+function fnCallPage(page){
+
+    switch (page){
+
+          case filereport:
+            // call page here
+          break;
+    }
+        
+
+
+}
+
+  document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+      function onDeviceReady() {
+      document.addEventListener("backbutton", onBackKeyDown, false);
+
+      }  
+
+      function onBackKeyDown(event) {
+event.preventDefault();
+navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
+
+}
+
+  function fnLogOut() {
+        event.preventDefault();
+        navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
+
+        }
+
+        
+      function onConfirm(button) {
+      if(button==2){//If User selected No, then we just do nothing
+          return;
+      }else{
+         cordova.plugins.exit();;// Otherwise we quit the app.
+      }
+
+      } 
+      
+</script>     
+</body>
+</html>

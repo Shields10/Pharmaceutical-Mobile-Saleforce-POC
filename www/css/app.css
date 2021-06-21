@@ -1313,11 +1313,7 @@ code {
 .theme-dark .block-title.color-dark {
     color: #ffffff
 }
-.navbar-bgmerch{
-  background-color: #02913F;
-  height: 100%;
-  
-}
+
 
 .dashtopm{
   background-size: cover !important;
@@ -1342,7 +1338,7 @@ code {
   left: 0;
   top: 0;
   width: 84%;
-  margin:14% 8% 5%;
+  margin:56% 8% 5%;
   padding:4%;
   height: 23%;
   transform: none;
@@ -1351,6 +1347,7 @@ code {
   display: grid;
   grid-gap: 0;
   grid-template-rows: 50% 20% 14%;
+  
 }
 
 
@@ -1539,3 +1536,12 @@ code {
   .pushable:focus:not(:focus-visible) {
     outline: none;
   }
+.blue-bg-color{
+background-color: #000a48;
+}
+
+.graph-position{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}

@@ -8,6 +8,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
   <title>Saleforce App</title>
   <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="packages/core/components/chartist/chartist.min.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="apple-touch-icon" href="img/f7-icon-square.png">
   <link rel="icon" href="img/f7-icon.png">
@@ -56,10 +57,6 @@
                       </div>
                     </a>
                   </li>
-                  
-
-                  
-                  
               </div>
               </ul>
               </div>
@@ -67,123 +64,81 @@
           </div>
         </div> 
         
-        
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main ios-edges">
         <!-- Initial Page, "data-name" contains page name -->
              <div class="page">
+                   
                       <div class="navbar">
-                            <div class=" navbar-inner" style="background-color: #000a48;">
-                                <div class="left">
-                                  <a href="#" class="link icon-only panel-open" data-panel="left">
-                                    <i class="icon f7-icons ios-only" style="color:#FFFFFF" >menu</i>
-                                    <i class="icon material-icons md-only"  style="color:#FFFFFF">menu</i>
-                                  </a>
-                                </div>
-                                  <div class="title sliding navtitlep text-align-center" style="margin-left: 100px; margin-right: auto;" >HOME</div> 
-                              </div>
+                        <div class=" navbar-inner" style="background-color: #000a48;">
+                            <div class="left">
+                              <a href="#" class="link icon-only panel-open" data-panel="left">
+                                <i class="icon f7-icons ios-only" style="color:#FFFFFF" >menu</i>
+                                <i class="icon material-icons md-only"  style="color:#FFFFFF">menu</i>
+                              </a>
+                            </div>
+                              <div class="title sliding navtitlep text-align-center" style="margin-left: 100px; margin-right: auto;" >HOME</div> 
                           </div>
 
-                     <div class="page-content">
+                          <!-- TODO: ADD PROFILE PICTURE -->
+                      </div>
 
-                            <div class="blue-overlay">
-                              <p class = "greet-messagename"id="greating" style="color:#FFFFFF; margin-top: 59px;margin-left: 67px;"> </p>
-                              <p class = "greet-messagename"id="spanusername" style="font-size: large; margin-top: 4px;color:white; margin-left: 67px; ">Benjamin </p>
-                            </div>
+                         <div class="toolbar tabbar tabbar-labels toolbar-bottom ">
+                          <div class="toolbar-inner blue-bg-color">
+                            <a href="#tab-1" class="tab-link tab-link-active"  >
+                              <i class="icon f7-icons color-white">house_fill</i>
+                              <!-- Label text -->
+                              <span class="tabbar-label "  style="font-size:x-small ; font-weight: bold;">Home</span>
+                            </a>
+                            <a href="#tab-2" class="tab-link" >
+                              <i class="icon f7-icons color-white">calendar_badge_plus</i>
+                              <span class="tabbar-label"  style="font-size:x-small ;font-weight: bold;  color:#f0003c">Tour Plan</span>
+                            </a>
+                            <a href="#tab-3" class="tab-link" >
+                                <i class="icon f7-icons color-white" >doc_text_fill</i>
+                              <span class="tabbar-label" style="font-size:x-small ;font-weight: bold;  color:#f0003c">DCR</span>
+                            </a>
+                            <a href="#tab-4" class="tab-link" >
+                              <i class="icon f7-icons color-white">wrench</i>
+                            <span class="tabbar-label" style="font-size:x-small ;font-weight: bold; color:#f0003c">Utility</span>
+                          </a>
+                          </div>
+                        </div>
 
-                            <!-- 
-                              <div class="dashtopm card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition"> 
+                    
+                            <div class="tabs">
+                              <!-- Tab 1 -->
+                            <div id="tab-1" class="page-content tab tab-active">
+                        
+                                <div class="blue-overlay">
+                                  <p class = "greet-messagename"id="greating" style="color:#FFFFFF; margin-top: 59px;margin-left: 67px;"> </p>
+                                  <p class = "greet-messagename"id="spanusername" style="font-size: large; margin-top: 4px;color:white; margin-left: 67px; ">Benjamin </p>
+                                </div> 
+
+                                <div class="checkin-card card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition graph-position"  style="margin: top 121px;">
+                                      <div id="sparklinedash">
+
+                                       
+                                      </div>   
+                                      
+                                      <span style="font-size: xx-small; font-weight: bolder;  margin-top: auto; margin-left: -103px;">Doctors Visited the last 7 days</span>
+                                     
+                                </div>
+                                             
+          
+                            </div><!-- End Of Tab 1 -->
                             
-                                  <div class="row" tyle="margin-top: -2%; ">
-                                    <p class = "greet-messagename"id="greating"> </p>
-                                  </div>
-                                  <div class="row">
-                                    <p class = "greet-messagename"id="spanusername" style="font-size: large; margin-top: 4px; ">Benjamin </p>
-                                  </div>
-                               
-                                </div>   -->
+                            <!-- Tab 2 -->
+                            <div id="tab-2" class="page-content tab"> 
+                          
 
 
-                               <div class="checkin-card card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style="margin-top: 121px;  "> 
-                                  <div class="row" style="margin-top: 21px;">
-
-                                    <div class="col-50">
-                                      <button class="pushable">
-                                        <span class="shadow"></span>
-                                        <span class="edge"></span>
-                                        <span class="front">
-                                         Check In
-                                        </span>
-                                      </button>
-                                    </div> 
-
-                                    <div class="col-50">
-                                      <button class="pushable">
-                                        <span class="shadow"></span>
-                                        <span class="edge"></span>
-                                        <span class="front">
-                                          Check Out
-                                        </span>
-                                      </button>
-                                    </div> 
-
-                                    <p style="font-family:GothamBook; color: #ee3739; font-weight: bold; font-size: medium; margin: auto; text-decoration: underline;">View History</p>
-
-
-
-
-
-
-                                  </div>
-                            
+                            </div><!-- End of Tab Two -->
+                        
+                          </div>
                              
-                              </div>
-
-                              
-
-                                <div  id="usercard" style="margin-top: 37px;">
-                                
-                                  <div class="card-content">
-                               
-                                    <div class="griddash">
-                                      <div class="col grditem"  onclick="javascript:fnCallPage('tourplan');return false;">
-                                        
-                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px; border: 2px solid #ee3739 ;">
-                                          <img src="img/tourplan.png" height="50" width="50" style="margin:auto;">
-                                        <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small; ">TOUR PLAN </p>
-                                        </div>
-            
-                                      </div>
-                                      <div class="col grditem"  onclick="javascript:fnCallPage('filereport');return false;">
-                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px; border: 2px solid #ee3739 ;">
-                                          <img src="img/report.png" height="50" width="50" style="margin:auto;">
-                                          <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small;">FILE REPORT</p>
-                                        </div>
-                                      </div>
-            
-                                      <div class="col grditem"  onclick="javascript:fnCallPage('sales_analysis');return false;">
-                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px ; border: 2px solid #ee3739 ;">
-                                          <img src="img/sale-analysis.png" height="50" width="50" style="margin:auto;">
-                                          <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small;">SALE ANALYSIS</p>
-                                         </div>
-                                      </div>
-                                      <div class="col grditem"  onclick="javascript:fnCallPage('doctors');return false;">
-                                        <div class="psv  card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition" style=" width: 57%; border-radius: 10px;border: 2px solid #ee3739 ;" >
-                                          <img src="img/doctor.png" height="50" width="50" style="margin:auto;">
-                                          <p style="margin:auto; color:#ee3739;font-weight: bolder; font-size: x-small;">DOCTORS</p>
-                                         </div>
-                                      </div>
-            
-            
-            
-            
-                                    </div>
-                                 
-                                  </div>
-                            </div>
-
-                  
-                   </div>
+                            
+                   
             </div>
        </div>
           <form  method="GET" id="mainform" >
@@ -199,9 +154,9 @@
  
      <script src="cordova.js"></script>-
   <script src="packages/core/js/framework7.bundle.min.js"></script>
-    <script src="packages\core\components\sweetalert/sweetalert2.all.min.js"></script>
   <script src="js/app.js"></script>
  <script src="js/jquery-3.4.1.min.js"></script> <!--Call the jquery at the end of all JS files, else jquery will not work -->
+ <script src="packages/core/components/sparkline/sparkline.js"></script>
  <script src="js/AESUtil.js"></script>
     
  <script>
@@ -265,6 +220,22 @@ navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Co
 
       } 
       
+
+// =========================Sparkline JS======================//
+const data = [0, 5, 6, 10, 9, 12, 4]
+const config = {
+  type: 'bar',
+  height: '50',
+  barWidth: '10',
+  resize: true,
+  barSpacing: '5',
+  barColor: '#f0003c'
+}
+$('#sparklinedash').sparkline(data, config)
+
+// =========================End of Chartist JS======================//
+
+
 </script>     
 </body>
 </html>
