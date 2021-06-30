@@ -1545,3 +1545,11 @@ background-color: #000a48;
   justify-content: left;
   align-items: center;
 }
+
+.graph-text{
+  font-size: xx-small;
+  font-weight: bolder; 
+  margin-top: auto;
+  margin-left: -103px;
+  white-space: nowrap;
+}

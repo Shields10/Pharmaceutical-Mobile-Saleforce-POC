@@ -116,12 +116,15 @@
                                 </div> 
 
                                 <div class="checkin-card card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition graph-position"  style="margin: top 121px;">
-                                      <div id="sparklinedash">
-
-                                       
-                                      </div>   
-                                      
-                                      <span style="font-size: xx-small; font-weight: bolder;  margin-top: auto; margin-left: -103px;">Doctors Visited the last 7 days</span>
+                                 
+                                   
+                                      <div id="sparklinedash"></div>   
+                                      <span class="graph-text">Doctors Visited the last 7 days</span>
+                                   
+                                 <div>
+                                  <canvas id="chartProgress" width="150px" height="100"></canvas>
+                                 </div>
+                                     
                                      
                                 </div>
                                              
@@ -157,6 +160,7 @@
   <script src="js/app.js"></script>
  <script src="js/jquery-3.4.1.min.js"></script> <!--Call the jquery at the end of all JS files, else jquery will not work -->
  <script src="packages/core/components/sparkline/sparkline.js"></script>
+ <script src="packages/core/components/chartjs/chart.min.js"></script>
  <script src="js/AESUtil.js"></script>
     
  <script>
@@ -169,6 +173,7 @@ $(document).ready(function(){
 
     var dateNow= new Date().toDateString();
     $('#today').html(dateNow);
+    fnLoadGraph();
 });
 var dt = new Date().getHours();
             if (dt >= 0 && dt <= 11){
@@ -233,8 +238,63 @@ const config = {
 }
 $('#sparklinedash').sparkline(data, config)
 
-// =========================End of Chartist JS======================//
+// =========================End of Sparkline JS======================//
+//========================Chart JS Donut=========================//
+var percent = 84;
+var remainingPercentage = 100- percent;  
 
+function fnLoadGraph(){
+Chart.pluginService.register({
+    beforeDraw: (chart) => {
+        let ctx = chart.chart.ctx;
+        ctx.save();
+        
+        let fontSize = (chart.chart.height / 75).toFixed(2);
+        ctx.font = fontSize + "em sans-serif";
+        ctx.textBaseline = "middle";                
+        let text = chart.data.datasets[0].data[0] + '%';
+        let textX = Math.round((chart.chart.width - ctx.measureText(text).width) / 2);
+        let textY = chart.chart.height / 2.25;
+        ctx.fillText(text, textX, textY);
+        
+        fontSize = (chart.chart.height / 124).toFixed(2);
+        ctx.font = fontSize + "em sans-serif";
+        ctx.textBaseline = "middle";                
+        text = chart.data.labels[0];
+        textX = Math.round((chart.chart.width - ctx.measureText(text).width) / 2);
+        textY = chart.chart.height / 1.6;
+        ctx.fillText(text, textX, textY);
+                
+        ctx.restore();
+    }
+});
+
+var config = {
+    type: 'doughnut',
+    data: {
+        labels: ["Sales Target", "Others"],
+        datasets: [{
+            data: [percent,remainingPercentage],
+            backgroundColor: ["#000a48", "#C1C1C1" ]
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        },
+        cutoutPercentage: 80,
+        aspectRatio: 5,
+        rotation: 70
+    }
+};
+
+var ctx = document.getElementById("chartProgress").getContext("2d");
+var myChart = new Chart(ctx, config);
+}
+//======================== End of Chart JS Donut=========================//
 
 </script>     
 </body>
