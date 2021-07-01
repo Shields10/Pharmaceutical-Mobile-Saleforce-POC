@@ -113,20 +113,97 @@
                                 <div class="blue-overlay">
                                   <p class = "greet-messagename"id="greating" style="color:#FFFFFF; margin-top: 59px;margin-left: 67px;"> </p>
                                   <p class = "greet-messagename"id="spanusername" style="font-size: large; margin-top: 4px;color:white; margin-left: 67px; ">Benjamin </p>
+                            
+                            
                                 </div> 
 
+
+                                
                                 <div class="checkin-card card-outline card elevation-6 elevation-hover-24 elevation-pressed-12 elevation-transition graph-position"  style="margin: top 121px;">
-                                 
-                                   
-                                      <div id="sparklinedash"></div>   
-                                      <span class="graph-text">Doctors Visited the last 7 days</span>
-                                   
-                                 <div>
-                                  <canvas id="chartProgress" width="150px" height="100"></canvas>
+                                  <div id="sparklinedash"></div>   
+                                  <span class="graph-text">Doctors Visited the last 7 days</span>
+                               
+                                  <div>
+                                    <canvas id="chartProgress" width="150px" height="100"></canvas>
+                                  </div> 
+                            </div>
+
+                                <div class="row" style="margin-bottom:-10px;">
+                                  <p class="dashboard-titles">Doctor's Seen List</p>               
                                  </div>
+                                   
+                                 <div class="card card-outline">
+                                    <div class="card-content">
+                                      <div class="list media-list">
+                                        <ul id="view">
+                                         <li>
+                                           <div class="item-content">
+                                             <div class="item-inner">
+                                               <div class="item-title-row" style="margin-bottom: -22px;"> 
+                                                 <div class="item-title credit">1. Dr. Evans Gicheru </div>
+                                                </div>
+                                                <div class="item-after">
+                                                  <br>9:00 AM, 2nd-July-2021
+                                                  <br>Kenyatta Hospital
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </li>
+                                         <li>
+                                           <div class="item-content">
+                                             <div class="item-inner">
+                                               <div class="item-title-row" style="margin-bottom: -22px;"> 
+                                                 <div class="item-title credit">2. Dr. Faith Kioko</div>
+                                                </div>
+                                                <div class="item-after">
+                                                  <br>3:15 PM, 2nd-July-2021
+                                                  <br>Avenue Healthcare 
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </li>
+
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row" style="margin-bottom:-10px;">
+                                    <p class="dashboard-titles">Notification</p>               
+                                   </div>
                                      
-                                     
-                                </div>
+                                   <div class="card card-outline">
+                                      <div class="card-content">
+                                        <div class="list media-list">
+                                          <ul id="view">
+                                          
+                                            <div class="grid-notifications">
+                                              <div class="row textsizesmall">
+                                                <span >1. Tour Plan</span>
+                                              </div>
+                                              
+                                              <div class="row" style="align-items: center; margin: auto;">
+                                                <span class="badge color-orange">Pending</span>
+                                              </div>
+                                              <div class="row textsizesmall">
+                                                 <span style="font-weight: bold; margin: auto;color: #d2691e;"> 3rd-July-2021</span></div>
+                                            </div> 
+
+                                            <div class="grid-notifications">
+                                              <div class="row textsizesmall">
+                                                <span >2. Leave Request</span>
+                                              </div>
+                                              
+                                              <div class="row" style="align-items: center; margin: auto;">
+                                                <span class="badge color-green">Approved</span>
+                                              </div>
+                                              <div class="row textsizesmall"> <span style="font-weight: bold; margin: auto;color: #d2691e;"> 1st-July-2021</span></div>
+                                            </div> 
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                
                                              
           
                             </div><!-- End Of Tab 1 -->
@@ -275,7 +352,7 @@ var config = {
         labels: ["Sales Target", "Others"],
         datasets: [{
             data: [percent,remainingPercentage],
-            backgroundColor: ["#000a48", "#C1C1C1" ]
+            backgroundColor: ["#000a48", "#C1C1C1*" ]
         }]
     },
     options: {
