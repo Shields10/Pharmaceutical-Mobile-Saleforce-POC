@@ -13,13 +13,13 @@
   <link rel="apple-touch-icon" href="img/f7-icon-square.png">
   <link rel="icon" href="img/f7-icon.png">
 </head>
-<body class="color-theme-white" >
+<body class="color-theme-jf-red" >
     <!-- App root element -->
     <div id="app">
 
       <div class="panel panel-left panel-cover">
         <div class="page ">
-          <div class="page-content" style="background-color: #000a48;" >
+          <div class="page-content jf-blue-bg" >
             <div class="row panel-headerm">
               <a href="#" class="panel-close close-drawer"><i class="icon f7-icons color-white" style="float: right;margin-right: -124px">multiply</i></a>
             </div> 
@@ -70,35 +70,44 @@
              <div class="page">
                    
                       <div class="navbar">
-                        <div class=" navbar-inner" style="background-color: #000a48;">
+                        <div class=" navbar-inner jf-blue-bg" >
                             <div class="left">
                               <a href="#" class="link icon-only panel-open" data-panel="left">
                                 <i class="icon f7-icons ios-only" style="color:#FFFFFF" >menu</i>
                                 <i class="icon material-icons md-only"  style="color:#FFFFFF">menu</i>
                               </a>
                             </div>
-                              <div class="title sliding navtitlep text-align-center" style="margin-left: 100px; margin-right: auto;" >HOME</div> 
-                          </div>
+                              <div class="title sliding navtitlep text-align-center" style="margin-left: 100px; margin-right: auto;" id="navtitle"></div> 
+                              <div class="right">
+                                   <div class="link icon-only" style="margin-right:16px;">
 
-                          <!-- TODO: ADD PROFILE PICTURE -->
+                                        <i class="icon f7-icons ios-only" style="color:#FFFFFF" >person_circle</i>
+                                        <i class="icon material-icons md-only"  style="color:#FFFFFF">person_circle</i>
+                                   </div> 
+                             
+                            </div>
+                          </div>
+      
                       </div>
 
                          <div class="toolbar tabbar tabbar-labels toolbar-bottom ">
                           <div class="toolbar-inner blue-bg-color">
-                            <a href="#tab-1" class="tab-link tab-link-active"  >
+                            <a href="#tab-1" class="tab-link tab-link-active" onclick="javascript: fnChangeNavTitle('HOME'); return false;" >
                               <i class="icon f7-icons color-white">house_fill</i>
                               <!-- Label text -->
-                              <span class="tabbar-label "  style="font-size:x-small ; font-weight: bold;">Home</span>
+                              <span class="tabbar-label "  style="font-size:x-small ; font-weight: bold;  color:#f0003c"">Home</span>
                             </a>
-                            <a href="#tab-2" class="tab-link" >
-                              <i class="icon f7-icons color-white">calendar_badge_plus</i>
-                              <span class="tabbar-label"  style="font-size:x-small ;font-weight: bold;  color:#f0003c">Tour Plan</span>
-                            </a>
-                            <a href="#tab-3" class="tab-link" >
+ 
+                            <a href="#tab-2" class="tab-link"  onclick="javascript: fnChangeNavTitle('DCR');return false;">
                                 <i class="icon f7-icons color-white" >doc_text_fill</i>
                               <span class="tabbar-label" style="font-size:x-small ;font-weight: bold;  color:#f0003c">DCR</span>
                             </a>
-                            <a href="#tab-4" class="tab-link" >
+
+                            <a href="#tab-3" class="tab-link" onclick="javascript: fnChangeNavTitle('Tour Plan'); return false;" >
+                              <i class="icon f7-icons color-white">calendar_badge_plus</i>
+                              <span class="tabbar-label"  style="font-size:x-small ;font-weight: bold;  color:#f0003c">Tour Plan</span>
+                            </a>
+                            <a href="#tab-4" class="tab-link" onclick="javascript: fnChangeNavTitle('Utility'); return false;" >
                               <i class="icon f7-icons color-white">wrench</i>
                             <span class="tabbar-label" style="font-size:x-small ;font-weight: bold; color:#f0003c">Utility</span>
                           </a>
@@ -129,7 +138,7 @@
                             </div>
 
                                 <div class="row" style="margin-bottom:-10px;">
-                                  <p class="dashboard-titles">Doctor's Seen List</p>               
+                                  <p class="dashboard-titles">Doctors Seen Today (<span style="font-size:x-small" id="today"></span>)</p>               
                                  </div>
                                    
                                  <div class="card card-outline">
@@ -207,13 +216,168 @@
                                              
           
                             </div><!-- End Of Tab 1 -->
-                            
+                          
                             <!-- Tab 2 -->
                             <div id="tab-2" class="page-content tab"> 
+                              <div class="card" >
+                                <div class="card-header elevation-5 jf-red-bg " > Fill in the Details:- </div>
+                                <div class="list no-hairlines-md">
+                                <form id="dcr-form" data-parsley-validate="">
+                                 <ul>
+                                    <li class="item-content item-input item-input-outline">
+                                      <div class="item-inner">
+                                          <div class="item-title item-floating-label ">Doctor Seen <span style="color: red;">*</span></div>
+                                          <div class="item-input-wrap input-dropdown-wrap">
+                                            <select  id="doctor" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-errors-container="#errorselectdoctor">
+                                              <option selected disabled>Doctor Seen</option>
+                                              <option  >Dr. Gitau Evans</option>
+                                              <option >Dr. Mwalimu Kinyau</option>
+                                              <option  >Dr. Samuel Nyali</option>
+                                              <option >Dr. Nancy Mwilu</option>
+                                              <option  >Dr. Mercy Mwaniki</option>
+                                              <option >Dr. Justin Kigen</option>
+                                            </select>
+                                          </div>
+                                          <div class="error-messages" id="errorselectdoctor"></div>
+                                      </div>
+                                  </li>
+                                  
+                                </li>
+                                  <li class="item-content item-input item-input-outline">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label">Location <span style="color: red;">*</span></div>
+                                        <div class="item-input-wrap">
+                                          <select  id="location" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-errors-container="#errorselectlocation">
+                                            <option selected disabled>Location</option>
+                                            <option  >Kenyatta Hospital</option>
+                                            <option >Mbagathi Hospital</option>
+                                            <option  >Avenue Hospital</option>
+                                            <option >Guru Nanak Hospital</option>
+                                            <option  >Nairobi Hospital</option>
+                                            <option >Karen Hospital</option>
+                                            <option >Haltons Pharmacy</option>
+                                            <option >Medimart Pharmacy</option>
+                                            <option >Belladonna Pharmacy Ltd</option>
+                                          </select>
+                                        </div>
+                                        <div class="error-messages" id="errorselectlocation"></div>
+                                    </div>
+                               
+                            
+                                <li class="item-content item-input item-input-outline">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label" >Date and Time  <span style="color: red;">*</span></div>
+                                        <div class="item-input-wrap">
+                                          <input type="datetime-local"  id="dateandtime" placeholder="Date and Time" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-errors-container="#errorinputdateandtime">
+                                            <span class="input-clear-button"></span>
+                                        </div>
+                                        <div class="error-messages" id="errorinputdateandtime"></div>
+                                    </div>
+                                </li> 
+                             
+                                  <li class="item-content item-input item-input-outline">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label" >Order Booked <span style="color: red;">*</span></div>
+                                        <div class="item-input-wrap input-dropdown-wrap">
+                                          <select  id="orderbooked" data-parsley-required="true" onChange="javascript: fnShowStockLevel(); return false;"data-parsley-trigger="keyup" data-parsley-errors-container="#errorselectorderbooked">
+                                            <option selected disabled>Order Booked</option>
+                                            <option value="Yes" >Yes</option>
+                                            <option value="No">No</option>
+                                          </select>
+                                        </div>
+                                        <div class="error-messages" id="errorselectorderbooked"></div>
+                                    </div>
+                                </li> 
+                                <div  class="hidden" id="stockinglevelview">
+                                  <li class="item-content item-input item-input-outline">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label" >Stocking Level Status <span style="color: red;">*</span></div>
+                                        <div class="item-input-wrap input-dropdown-wrap">
+                                          <select  id="stocklevelstatus" >
+                                            <option selected disabled>Stocking Level Status</option>
+                                            <option value="Stocking" >Stocking </option>
+                                            <option value="Non-Stocking">Non-Stocking</option>
+                                          </select>
+                                        </div>
+                                        <div class="error-messages" id="errorselectstocklevel"></div>
+                                    </div>
+                                </li> 
+                              </div>
+                              <li class="item-content item-input item-input-outline">
+                                <div class="item-inner">
+                                    <div class="item-title item-floating-label" >Product Prescribed <span style="color: red;">*</span></div>
+                                    <div class="item-input-wrap input-dropdown-wrap smart-select smart-select-init" data-open-in="popover">
+                                      <select  id="product" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-errors-container="#errorselectproduct" multiple>
+                                        <option selected disabled>Product Prescribed</option>
+                                        <option value="Bonium" >Bonium </option>
+                                        <option value="Coclam">Coclam</option>
+                                        <option value="Tasol GM">Tasol GM</option>
+                                        <option value="Glucosamine">Glucosamine</option>
+                                        <option value="Chondroitin">Chondroitin</option>
+                                        <option value="Calcium">Calcium</option>
+                                        <option value="Vitamin B12">Vitamin B12 </option>
+                                        <option value="Vitamin C">Vitamin C</option>
+                                        <option value="Vitamin D">Vitamin D</option>
+                                        <option value="Vitamin E">Vitamin E</option>
+                                      </select>
+                                    </div>
+                                    <div class="error-messages" id="errorselectproduct"></div>
+                                </div>
+                            </li>
+                
+    
+                                  <li class="item-content item-input item-input-outline">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label " >Comments</div>
+                                        <div class="item-input-wrap">
+                                          <textarea class="resizable" placeholder="Comments"></textarea>
+                                          <span class="input-clear-button"></span>
+                                        </div>
+                                      
+                                    </div>
+                                   
+                                </li> 
+
+                                <li class="item-content item-input item-input-outline">
+                                  <div class="item-inner">
+                                    
+                                      <div class="item-title item-floating-label" >Accompanied By:- <span style="color: red;">*</span></div>
+                                      <div class="item-input-wrap input-dropdown-wrap smart-select smart-select-init" data-open-in="popover">
+                                        <select  id="accompaniedby" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-errors-container="#erroraccompaniedby" multiple>
+                                          <option selected disabled>Accompanied By</option>
+                                          <option> Mr. Tom Bayeye </option>
+                                          <option >Mr. Evans Kieng</option>
+                                          <option >Mr. Opama Kevin</option>
+                                          <option >Mr. Kioko Samuel</option>
+                                        </select>
+                                      </div>
+                                      <div class="error-messages" id="erroraccompaniedby"></div>
+                                  </div>
+                              </li> 
+                                  
+                                <li class = "col" style=" padding-bottom: 10px;">
+                                  <a href="#" class="button button-raised button-fill jf-red-bg " style="width:100px; margin: auto;" onclick="javascript:fnSubmitDetails(); return false;" >Submit</a>
+                              </li>
                           
+                              </ul>
+                             </form>    
+                            </div>
+                          </div> 
 
 
                             </div><!-- End of Tab Two -->
+                            <!-- Tab 3 -->
+                            <div id="tab-3" class="page-content tab"> 
+                          
+
+
+                            </div><!-- End of Tab Three -->
+                            <!-- Tab 4 -->
+                            <div id="tab-4" class="page-content tab"> 
+                          
+
+
+                            </div><!-- End of Tab Four -->
                         
                           </div>
                              
@@ -238,6 +402,8 @@
  <script src="js/jquery-3.4.1.min.js"></script> <!--Call the jquery at the end of all JS files, else jquery will not work -->
  <script src="packages/core/components/sparkline/sparkline.js"></script>
  <script src="packages/core/components/chartjs/chart.min.js"></script>
+ <script src="packages/core/components/Parsley/parsley.js"></script> 
+ <script src="packages/core/components/sweetalert/sweetalert2.all.min.js"></script> 
  <script src="js/AESUtil.js"></script>
     
  <script>
@@ -247,6 +413,7 @@
 
 $(document).ready(function(){
     console.log('ready');
+    $('#navtitle').html("Home");
 
     var dateNow= new Date().toDateString();
     $('#today').html(dateNow);
@@ -260,6 +427,60 @@ var dt = new Date().getHours();
             }else {
                 document.getElementById("greating").innerHTML='Good Evening! 🌙'
             }
+function fnChangeNavTitle(title){
+   $("#navtitle").html(title);
+
+}
+ 
+function fnShowStockLevel(){
+  console.log("orderbooked")
+	  var orderbooked = $("#orderbooked option:selected").val();
+
+    console.log("stocklevelstatus is "+ orderbooked);
+       if (orderbooked==="Yes"){
+        $( "#stockinglevelview" ).removeClass("hidden");
+       } else {
+        $( "#stockinglevelview" ).addClass("hidden");
+       }
+  }
+
+  function fnSubmitDetails(){
+
+    var isValid = true;
+          $('#dcr-form').each( function() {
+            if ($(this).parsley().validate() !== true) isValid = false;
+          });
+          if (isValid===false) {
+            window.plugins.toast.showWithOptions({
+                  message: "Failed! , Please fill in all the required details",
+                  duration: "long", // 2000 ms
+                  position: "center",
+                  styling: {
+                  opacity: 0.8, // 0.0 (transparent) to 1.0 (opaque). Default 0.8
+                  backgroundColor: '#000000', // make sure you use #RRGGBB. Default #333333
+                  textColor: '#FFFFFF', // Ditto. Default #FFFFFF
+                  textSize: 13, // Default is approx. 13.
+                  cornerRadius: 100, // minimum is 0 (square). iOS default 20, Android default 100
+                  horizontalPadding: 50, // iOS default 16, Android default 50
+                    verticalPadding: 7 // iOS default 12, Android default 30
+                  }
+                });
+          return;
+          }
+                  Swal.fire({
+                              customClass: 'swal-size',
+                              text: "Successfully submitted!",
+                              icon: "success",
+                              type: "success",   
+                              showConfirmButton: true,
+                              confirmButtonText: "Ok",
+                              closeOnConfirm: true,
+                              timer: 3000,
+                        }).then(function() {
+                            window.location.reload();
+                        }); 
+
+  }
 
 function fnCallPage(page){
 

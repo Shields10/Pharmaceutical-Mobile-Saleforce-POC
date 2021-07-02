@@ -1569,4 +1569,24 @@ font-size: medium;
   grid-column-gap: 0;
 
   }
- 
+ /* Custom color theme */
+.color-theme-jf-blue {
+  --f7-theme-color: #000a48;
+  --f7-theme-color-rgb: 0, 10, 72;
+  --f7-theme-color-shade: #00041f;
+  --f7-theme-color-tint: #001071;
+}
+.color-theme-jf-red {
+  --f7-theme-color: #f0003c;
+  --f7-theme-color-rgb: 240, 0, 60;
+  --f7-theme-color-shade: #c70032;
+  --f7-theme-color-tint: #ff1a53;
+}  
+ /* Custom color theme */
+
+.jf-blue-bg{
+  background-color: #000a48;
+}
+.jf-red-bg{
+  background-color: #f0003c;
+}
