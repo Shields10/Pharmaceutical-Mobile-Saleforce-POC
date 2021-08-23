@@ -1590,3 +1590,8 @@ font-size: medium;
 .jf-red-bg{
   background-color: #f0003c;
 }
+
+.container-calendar {
+  width: 200px;
+  margin: 0 auto;
+}

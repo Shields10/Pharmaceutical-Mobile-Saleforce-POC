@@ -9,6 +9,8 @@
   <title>Saleforce App</title>
   <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
   <link rel="stylesheet" href="packages/core/components/chartist/chartist.min.css">
+  <link rel="stylesheet" href="packages/core/components/powerful-calendar/calendar-style.css">
+  <link rel="stylesheet" href="packages/core/components/powerful-calendar/calendar-theme.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="apple-touch-icon" href="img/f7-icon-square.png">
   <link rel="icon" href="img/f7-icon.png">
@@ -345,7 +347,7 @@
                                       <div class="item-input-wrap input-dropdown-wrap smart-select smart-select-init" data-open-in="popover">
                                         <select  id="accompaniedby" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-errors-container="#erroraccompaniedby" multiple>
                                           <option selected disabled>Accompanied By</option>
-                                          <option> Mr. Tom Bayeye </option>
+                                          <option> Mr. Tom Gashanja </option>
                                           <option >Mr. Evans Kieng</option>
                                           <option >Mr. Opama Kevin</option>
                                           <option >Mr. Kioko Samuel</option>
@@ -368,8 +370,54 @@
                             </div><!-- End of Tab Two -->
                             <!-- Tab 3 -->
                             <div id="tab-3" class="page-content tab"> 
-                          
+                                   
+                              <div class="card card-outline">
+                                <div class="calendar-wrapper" id="calendar-wrapper"></div>
+                                     <div id="editor"></div>
+                              </div>  
+                              <div class="hidden" id="schedule-wrapper" style="font-size:smaller" >
+                                <!-- TODO:- Pull data from Db of scheduled visits -->
+                                <div class="row" style="margin-bottom:-10px;">
+                                  <p class="dashboard-titles" style="font-weight: 400;" >Schedule Visit For <span  id="date-selected"></span></p>               
+                                 </div>  
+                                 <div class="card card-outline">
+                                    <div class="card-content" style="background: antiquewhite;">
+                                      <div class="list media-list">
+                                        <ul id="view">
+                                         <li>
+                                           <div class="item-content">
+                                             <div class="item-inner">
+                                               <div class="item-title-row" style="margin-bottom: -22px;"> 
+                                                 <div class="item-title credit"> <span style="font-weight: bold;"> 8:00 AM - 10:00 AM</span>  Dr. Evans Gicheru </div>
+                                                </div>
+                                                <div class="item-after">
+                                                  <br>9:00 AM, 2nd-July-2021
+                                                  <br>Kenyatta Hospital
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </li>
+                                         <li>
+                                           <div class="item-content">
+                                             <div class="item-inner">
+                                               <div class="item-title-row" style="margin-bottom: -22px;"> 
+                                                 <div class="item-title credit"> <span style="font-weight: bold;"> 12:00 PM - 3:00 PM</span> Dr. Faith Kioko</div>
+                                                </div>
+                                                <div class="item-after">
+                                                  <br>3:15 PM, 2nd-July-2021
+                                                  <br>Avenue Healthcare 
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </li>
 
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                             
+
+                              </div> 
 
                             </div><!-- End of Tab Three -->
                             <!-- Tab 4 -->
@@ -404,12 +452,10 @@
  <script src="packages/core/components/chartjs/chart.min.js"></script>
  <script src="packages/core/components/Parsley/parsley.js"></script> 
  <script src="packages/core/components/sweetalert/sweetalert2.all.min.js"></script> 
+ <script src="packages/core/components/powerful-calendar/calendar.min.js"></script>
  <script src="js/AESUtil.js"></script>
     
  <script>
-
-
-
 
 $(document).ready(function(){
     console.log('ready');
@@ -594,6 +640,51 @@ var myChart = new Chart(ctx, config);
 }
 //======================== End of Chart JS Donut=========================//
 
+
+////=============== Calendar JS======================//
+var calConfig = `
+function selectDate(date) {
+  $('#calendar-wrapper').updateCalendarOptions({
+    date: date
+  });
+  console.log(calendar.getSelectedDate());
+  var dateSelected=  calendar.getSelectedDate();
+  fnShowSchedule(dateSelected);
+}
+
+var defaultConfig = {
+  weekDayLength: 1,
+  date: '08-05-2021',
+  onClickDate: selectDate,
+  showYearDropdown: true,
+  startOnMonday: true,
+};
+
+var calendar = $('#calendar-wrapper').calendar(defaultConfig);
+console.log(calendar.getSelectedDate());
+`;
+
+eval(calConfig);
+      // const flask = new CodeFlask('#editor', { 
+      //   language: 'js', 
+      //   lineNumbers: true 
+      // });
+      // flask.updateCode(calConfig);
+      // flask.onUpdate((code) => {
+      //   try {
+      //     eval(code);
+      //   } catch(e) {}
+      // });
+  
+////=============== End of Calendar JS======================//
+
+ function fnShowSchedule(dateSelected){
+   console.log("Date is "+dateSelected);
+  $('#schedule-wrapper').removeClass("hidden");
+  var date = dateSelected.toString().slice(0, 15);
+  $('#date-selected').html(date);
+
+ }
 </script>     
 </body>
 </html>
